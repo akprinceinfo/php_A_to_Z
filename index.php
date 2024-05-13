@@ -20,6 +20,22 @@
 
 <!-- password login  -->
 
+<!-- <form action="PassWord_login.php" method="get">
+    <input type="text" name="user" id="" placeholder="Name">
+    <input type="password" name="userPass" id="" placeholder="password">
+    <input type="submit" value="Upload">
+</form> -->
+
+    <?php 
+
+        // if(isset($_REQUEST["wrongPass"])){
+        //     echo $_REQUEST["wrongPass"];
+        // }
+    ?> 
+<!-- ================ Password Encryption and Security==================== -->
+
+
+
 <form action="PassWord_login.php" method="get">
     <input type="text" name="user" id="" placeholder="Name">
     <input type="password" name="userPass" id="" placeholder="password">
@@ -28,9 +44,5 @@
 
 <?php 
 
-    if(isset($_REQUEST["wrongPass"])){
-        echo $_REQUEST["wrongPass"];
-    }
-   
-   
+    
 ?>
