@@ -32,17 +32,23 @@
         //     echo $_REQUEST["wrongPass"];
         // }
     ?> 
-<!-- ================ Password Encryption and Security==================== -->
+<!-- ================ Password Encryption and Security===========09========= -->
 
 
+
+<!-- <form action="PassWord_login.php" method="get">
+    <input type="text" name="user" id="" placeholder="Name">
+    <input type="password" name="userPass" id="" placeholder="password">
+    <input type="submit" value="Upload">
+</form> -->
+
+
+
+
+<!-- ================  PHP Random Password Generator =========10=========== -->
 
 <form action="PassWord_login.php" method="get">
     <input type="text" name="user" id="" placeholder="Name">
     <input type="password" name="userPass" id="" placeholder="password">
-    <input type="submit" value="Upload">
+    <input type="submit" value="Sibmit">
 </form>
-
-<?php 
-
-    
-?>
