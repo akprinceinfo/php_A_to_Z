@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form View</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 </head>
 <body>
     
@@ -27,8 +27,15 @@
 
         // Delete page data received
         if (isset($_REQUEST['deleted'])) {
-           echo"<font color ='green'>Data Deleted</font>";
+           echo"<font color ='red'>Data Deleted</font>";
         }
+        // Update page data received
+        if (isset($_REQUEST['updateData'])) {
+           echo"<font color ='green'>Data Update</font>";
+        }
+
+
+        
 
     ?>
         <div class="container">
@@ -47,15 +54,15 @@
         if ($dataCount > 0) {
             $serial_number = 1;
             while ($rows = mysqli_fetch_assoc($connection)) {
-              $dbId =  $rows['id'] ;
+                $dbId =  $rows['id'] ;
             ?>
                 <tbody class="table-group-divider">
                     <tr class="text-center">
-                        <th scope="row"><?php echo $serial_number ;?></th>
-                        <td><?php echo $rows['userName'] ;?></td>
-                        <td><?php echo $rows['email'] ;?></td>
-                        <td><?php echo $rows['password'] ;?></td>
-                        <td><a href="delete.php?id=<?php echo $dbId?>">Delete</a></td>
+                        <th scope="row"><?php echo $serial_number;?></th> 
+                        <td><?php echo $rows['userName'];?></td>
+                        <td><?php echo $rows['email'];?></td>
+                        <td><?php echo $rows['password'];?></td>
+                        <td><a href="single_data_edit.php?edit_Id=<?php echo $dbId ?>;">Edit</a> || <a href="delete.php?id=<?php echo $dbId?>">Delete</a></td>
                     </tr>
                 </tbody>
 
@@ -69,6 +76,6 @@
 
         </table>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
