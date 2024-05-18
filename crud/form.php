@@ -5,9 +5,14 @@
     
     if(isset($_REQUEST['submit'])){
         $name = $_REQUEST['name'];
+        $profilePhoto = $_REQUEST['insImage'];
         $email = $_REQUEST['email'];
         $password = $_REQUEST['password'];
-
+        
+        //file add 
+        $insImage = $_REQUEST['insImage']; // array hesaba data pass hoi
+        $imageName = $insImage['name']; //image name
+        $image_tem_name = $insImage['tmp_name'];// tempore name
 
         //condition Use
         if ($name != "" && $email && $password) {
@@ -59,7 +64,8 @@
   <body>
 
     <div class="container">
-        <form action="" method="POST">
+        <h2 class="text-center pt-5">Input Information</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3 mt-3">
                 <label for="name" class="form-label">User Name:</label>
                 <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
@@ -71,6 +77,10 @@
             <div class="mb-3">
                 <label for="pwd" class="form-label">Password:</label>
                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Profile Image</label>
+                <input type="file" class="form-control" id="image" value="Upload"  name="imageUpolod">
             </div>
             
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>

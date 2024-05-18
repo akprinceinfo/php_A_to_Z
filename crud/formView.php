@@ -44,6 +44,7 @@
                 <tr class="text-center">
                     <th scope="col">ID</th>
                     <th scope="col">User Name</th>
+                    <th scope="col">Profile Photo</th>
                     <th scope="col">Gmail</th>
                     <th scope="col">Password</th>
                     <th scope="col">Delete</th>
@@ -55,13 +56,19 @@
             $serial_number = 1;
             while ($rows = mysqli_fetch_assoc($connection)) {
                 $dbId =  $rows['id'] ;
+                $userName =  $rows['userName'] ;
+                $email =  $rows['email'] ;
+                $password =  $rows['password'] ;
+                $insImageadd = $rows['profile_photo'];
+
             ?>
                 <tbody class="table-group-divider">
                     <tr class="text-center">
                         <th scope="row"><?php echo $serial_number;?></th> 
-                        <td><?php echo $rows['userName'];?></td>
-                        <td><?php echo $rows['email'];?></td>
-                        <td><?php echo $rows['password'];?></td>
+                        <td><?php echo $userName;?></td>
+                        <td><img width='50px' src="image/<?php echo $insImageadd?>" alt="" srcset=""></td>
+                        <td><?php echo $email;?></td>
+                        <td><?php echo $password;?></td>
                         <td><a href="single_data_edit.php?edit_Id=<?php echo $dbId ?>;">Edit</a> || <a href="delete.php?id=<?php echo $dbId?>">Delete</a></td>
                     </tr>
                 </tbody>
