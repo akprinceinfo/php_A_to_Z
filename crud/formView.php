@@ -59,6 +59,7 @@
                 $userName =  $rows['userName'] ;
                 $email =  $rows['email'] ;
                 $password =  $rows['password'] ;
+                
                 $insImageadd = $rows['profile_photo'];
 
             ?>

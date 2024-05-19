@@ -1,58 +1,5 @@
 
 
-<?php 
-    
-    
-    if(isset($_REQUEST['submit'])){
-        $name = $_REQUEST['name'];
-        $profilePhoto = $_REQUEST['insImage'];
-        $email = $_REQUEST['email'];
-        $password = $_REQUEST['password'];
-        
-        //file add 
-        $insImage = $_REQUEST['insImage']; // array hesaba data pass hoi
-        $imageName = $insImage['name']; //image name
-        $image_tem_name = $insImage['tmp_name'];// tempore name
-
-        //condition Use
-        if ($name != "" && $email && $password) {
-            //Database connect
-            $conn = mysqli_connect("localhost","root","","user_info");
-            
-            if(!$conn){
-                die("not connect" . mysqli_error($conn));
-            }
-
-            $queryDataSend = "INSERT INTO ditels(userName,email,password) VALUES ('$name' ,'$email','$password')";
-
-            $dbConnect = mysqli_query($conn, $queryDataSend);
-
-            if (!$dbConnect) {
-                die("Not Success" . mysqli_error());
-            }else{
-                echo "Success";
-            }
-        }
-    }
-
-    
-
-    // $query = "SELECT * FROM ditels"
-
-   
-   
-    
-    
-    
-
-
-
-
-?>
-
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -65,7 +12,7 @@
 
     <div class="container">
         <h2 class="text-center pt-5">Input Information</h2>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="insert.php" method="POST" enctype="multipart/form-data">
             <div class="mb-3 mt-3">
                 <label for="name" class="form-label">User Name:</label>
                 <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
