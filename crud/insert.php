@@ -8,9 +8,12 @@
         $password = $_REQUEST['password'];
         
         //file add 
-        //$insImage = $_REQUEST['insImage']; // array hesaba data pass hoi
-        //$imageName = $insImage['name']; //image name
-        //$image_tem_name = $insImage['tmp_name'];// tempore name
+        $insImage = $_FILES['imageUpolod']; // array hesaba data pass hoi
+        $imageName = $insImage['name']; //image name
+        $image_tem_name = $insImage['tmp_name'];// tempore name
+
+        
+
 
         //condition Use
         if ($name != "" && $email && $password) {
@@ -21,15 +24,32 @@
                 die("not connect" . mysqli_error($conn));
             }
 
-            $queryDataSend = "INSERT INTO ditels(userName,email,password) VALUES ('$name' ,'$email','$password')";
+            
+            // =============== Image Uploads ========================
+            $imgUnikid = uniqid().".png";
+            if (!empty($imageName)) {
+                $imgLocation = "image/";
+                if (move_uploaded_file($image_tem_name,$imgLocation.$imgUnikid)) {
+                    header("location:formView.php");
+                }
+               
+             }else{
+                 echo "Your File is empty";
+             }
 
+
+            $queryDataSend = "INSERT INTO ditels(userName,email,password,profile_photo) VALUES ('$name' ,'$email','$password','$imgUnikid')";
+
+           
             $dbConnect = mysqli_query($conn, $queryDataSend);
 
             if (!$dbConnect) {
                 die("Not Success" . mysqli_error());
             }else{
-                echo "Success";
+               echo "Success";
             }
+
+
         }else{
             echo "Any Field cannot be block";
         }
