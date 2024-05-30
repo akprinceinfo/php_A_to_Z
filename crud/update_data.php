@@ -17,7 +17,7 @@
         $userPassword = $_REQUEST['password'];
         $hiddenId = $_REQUEST['update_hidden_id_pass'];
 
-        $updateQuery = "UPDATE ditels SET userName='$userName',email='$userEmail',password = '$userPassword' WHERE id ='$hiddenId'";
+        $updateQuery = "UPDATE ditels_table SET name='$userName',email='$userEmail',password = '$userPassword' WHERE id ='$hiddenId'";
 
         $final_connection = mysqli_query($conn,$updateQuery);
 

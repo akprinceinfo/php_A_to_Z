@@ -38,7 +38,7 @@
              }
 
 
-            $queryDataSend = "INSERT INTO ditels(userName,email,password,profile_photo) VALUES ('$name' ,'$email','$password','$imgUnikid')";
+            $queryDataSend = "INSERT INTO ditels_table(name,email,password,image) VALUES ('$name' ,'$email','$password','$imgUnikid')";
 
            
             $dbConnect = mysqli_query($conn, $queryDataSend);

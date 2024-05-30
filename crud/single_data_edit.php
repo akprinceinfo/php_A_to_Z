@@ -29,7 +29,7 @@
             
             $receivedId = $_REQUEST['edit_Id'];
 
-            $get_info = "SELECT * FROM ditels WHERE id = $receivedId ";
+            $get_info = "SELECT * FROM ditels_table WHERE id = $receivedId ";
 
             $selectInfo =  mysqli_query( $conn, $get_info);
 
@@ -42,7 +42,7 @@
             <form action="update_data.php" method="POST">
                 <div class="mb-3 mt-3">
                     <label for="name" class="form-label">User Name:</label>
-                    <input type="text" value="<?php echo $row['userName'] ?>" class="form-control" id="name" placeholder="Enter name" name="name">
+                    <input type="text" value="<?php echo $row['name'] ?>" class="form-control" id="name" placeholder="Enter name" name="name">
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Email:</label>

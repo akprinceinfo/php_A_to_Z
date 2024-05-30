@@ -1,5 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Upload</title>
+</head>
+<body>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <h3>Upload an image (PNG or JPG):</h3>
+        <input type="file" name="image" accept="image/png, image/jpeg"><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
+
+
 <?php 
-                       if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+                    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
                         $file = $_FILES['image'];
                         $fileName = $file['name'];
                         $fileTmpName = $file['tmp_name'];

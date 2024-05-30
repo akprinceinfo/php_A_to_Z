@@ -10,7 +10,7 @@
      $recvId = $_REQUEST['id'];
      $DBiamgeName = $_REQUEST['DBiamgeName'];
 
-     $query = "DELETE FROM ditels WHERE id = $recvId";
+     $query = "DELETE FROM ditels_table WHERE id = $recvId";
 
      $run_delete_query = mysqli_query($conn,$query);
 
