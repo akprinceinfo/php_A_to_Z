@@ -6,6 +6,8 @@
         $name = $_REQUEST['name'];
         $email = $_REQUEST['email'];
         $password = $_REQUEST['password'];
+        $gender = $_REQUEST['gender'];
+        $countery = $_REQUEST['countery'];
         
         //file add 
         $insImage = $_FILES['imageUpolod']; // array hesaba data pass hoi
@@ -38,7 +40,7 @@
              }
 
 
-            $queryDataSend = "INSERT INTO ditels_table(name,email,password,image) VALUES ('$name' ,'$email','$password','$imgUnikid')";
+            $queryDataSend = "INSERT INTO ditels_table(name,email,password,image,gender,countery) VALUES ('$name' ,'$email','$password','$imgUnikid','$gender','$countery')";
 
            
             $dbConnect = mysqli_query($conn, $queryDataSend);

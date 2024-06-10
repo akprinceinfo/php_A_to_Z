@@ -29,6 +29,19 @@
                 <label for="image" class="form-label">Profile Image</label>
                 <input type="file" class="form-control" id="image" value="Upload"  name="imageUpolod">
             </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender : </label>
+                <input type="radio" name="gender" id="" value="Mail">Mail
+                <input type="radio" name="gender" id="" value="Femail">Femail
+            </div>
+            <div class="mb-3">
+                <label for="countery" class="form-label">Countery</label>
+                <select name="countery">
+                  <option value="">Select Your Countery</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Pakesthen">Pakesthen</option>
+                </select>
+            </div>
             
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form> 

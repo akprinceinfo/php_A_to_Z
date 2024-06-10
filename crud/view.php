@@ -4,20 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form View</title>
+    <title>View</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 </head>
 <body>
-    
-<!-- Search field  -->
-            <?php 
-                        // $searchRecive = "";
-                       
-                        // if (isset($_REQUEST['searchBtn'])) {
-                        //     $searchQuery = "SELECT * FROM ditels_table WHERE name LIKE '%prince%'";
-                        //     echo  $searchRecive = $_REQUEST['searchField'];
-                        // }
-            ?>
+        
     
     <?php 
 
@@ -29,38 +20,31 @@
             die("not connect" . mysqli_error($conn));
         }
 
-        // Multipul Delete Query 
-
-            if (isset($_REQUEST['multiDeleteBtn'])) {
-                
-                if(isset($_REQUEST['multiDelete'])){
-
-                    $checkData =  $_REQUEST['multiDelete'];
-                    $all_mark = implode(",",$checkData);
-                
-                    $queryMulti = "DELETE FROM ditels_table WHERE id in ($all_mark)";
-                    $run_delete_query = mysqli_query($conn,$queryMulti);
-                }
-                
-            }
        
-       
-
-
 
 
         $query = "SELECT * FROM ditels_table";
         $connection = mysqli_query($conn , $query);
         $dataCount = mysqli_num_rows($connection);
 
-        $searchQuery = "SELECT * FROM ditels_table WHERE name LIKE '%rokey%'" ;
-        mysqli_query($conn,$searchQuery);
+        // $searchQuery = "SELECT * FROM ditels_table WHERE name LIKE '%rokey%'" ;
+        
 
         if (isset($_REQUEST['searchBtn'])) {
-            // $searchQuery = "SELECT * FROM ditels_table WHERE name LIKE '%rokey%'";
             echo  $searchRecive = $_REQUEST['searchField'];
+            $searchQuery = "SELECT * FROM ditels_table WHERE name LIKE '%$searchRecive%'";
+            $result = mysqli_query($conn,$searchQuery);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<p>" . $row["name"] . "</p>";
+                }
+            } else {
+                echo "No results found";
+            }
         }
 
+        
 
 
         // Delete page data received
@@ -106,12 +90,12 @@
         if ($dataCount > 0) {
             $serial_number = 1;
             while ($rows = mysqli_fetch_assoc($connection)) {
-                $dbId =  $rows['id'] ;
-                $userName =  $rows['name'] ;
-                $email =  $rows['email'] ;
-                $password =  $rows['password'] ;
-                $gender =  $rows['gender'] ;
-                $countery =  $rows['countery'] ;
+                $dbId =  $rows['id'];
+                $userName =  $rows['name'];
+                $email =  $rows['email'];
+                $password =  $rows['password'];
+                $gender =  $rows['gender'];
+                $countery =  $rows['countery'];
 
                 $insImageadd = $rows['image'];
             ?>
